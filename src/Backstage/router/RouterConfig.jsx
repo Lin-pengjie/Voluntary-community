@@ -6,6 +6,7 @@ const Router = [
     {
         path:'/after',
         element: <Layout />,
+        key:'after'
         // children:[
         //     {
         //         path:'home',

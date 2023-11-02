@@ -14,8 +14,13 @@ const items = [
     icon: <HomeOutlined />,
   },
   {
-    label: '活动报名',
+    label: '活动申请',
     key: '/applyfor',
+    icon: <FileDoneOutlined />
+  },
+  {
+    label: '活动报名',
+    key: '/signup',
     icon: <FileDoneOutlined />
   },
   {
@@ -107,14 +112,14 @@ const Home = () => {
       </Layout>
       <Footer className={Style.footerStyle}>
         <div>
-          <Space size={40} style={{ borderBottom: "4px solid", padding: "10px 30px 25px" }}>
+          <Space size={40} style={{ borderBottom: "4px solid", padding: "10px 30px 15px" }}>
             <div>关于</div>
             <div>博客</div>
             <div>网站</div>
           </Space>
         </div>
         <div>
-          <Space size={60} style={{ padding: "25px 30px 40px", fontSize: "35px" }}>
+          <Space size={60} style={{ padding: "15px", fontSize: "25px" }}>
             <div>
               <Popover
                 overlayInnerStyle={{
@@ -137,6 +142,7 @@ const Home = () => {
             </div>
           </Space>
         </div>
+        <div>&copy;&emsp;·&emsp;2023·幸福年华志愿行&emsp;·&emsp;Happy time volunteer line</div>
       </Footer>
     </Layout>
   )

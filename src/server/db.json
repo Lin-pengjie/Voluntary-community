@@ -1,0 +1,12 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "Name": "L.",
+            "gender": 0,
+            "language": "zh_CN",
+            "avatarUrl": "https://thirdwx.qlogo.cn/mmopen/vi_32/IwSShqvZ3wFMEpOBFibsTk72nALZFog5ywl7jyibz27picwXhld8GOnpbPgsHCuRX9VU7khiawSYiaDPesS1UFuhq3w/132",
+            "tel": "18762569862"
+        }
+    ]
+}

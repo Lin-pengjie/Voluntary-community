@@ -1,4 +1,3 @@
-import initCollapseMotion from 'antd/es/_util/motion';
 import Style from '../../assets/css/ApplyFor.module.css'
 import {
   Button,
@@ -6,14 +5,7 @@ import {
   Form,
   Input,
   Select,
-  DatePicker,
-  Popconfirm,
-  message,
 } from 'antd';
-import dayjs from 'dayjs';
-import 'dayjs/locale/zh-cn';
-import {  useState } from 'react';
-dayjs.locale('en');
 const { Option } = Select;
 const tailFormItemLayout = {
   wrapperCol: {
@@ -28,9 +20,7 @@ const tailFormItemLayout = {
   },
 };
 
-export default function ApplyFor() {
-  // const [location, setLocation] = useState({ latitude: null, longitude: null });
-  const [address, setaddress] = useState()
+export default function SignUp() {
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
@@ -44,39 +34,12 @@ export default function ApplyFor() {
     </Form.Item>
   );
 
-  const { RangePicker } = DatePicker;
-
-  const confirm = () => {
-    // 获取用户当前位置
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        // setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude });
-        reverseGeocode(position.coords.latitude, position.coords.longitude)
-        message.success('获取用户当前位置成功');
-      },
-      (error) => {
-        console.log('获取用户当前位置失败', error);
-        message.success('获取用户当前位置失败')
-      }
-    );
-  };
-  //逆地址解析
-  const reverseGeocode = async (latitude, longitude) => {
-    const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`);
-    const data = await response.json();
-    if (response.ok) {
-      setaddress(data.display_name)
-    } else {
-      console.log('逆地址解析失败');
-    }
-  };
-
   return (
     <div className={Style.box}>
-      <Card title="活动申请">
+      <Card title="活动报名">
         <Form initialValues={{ prefix: '86' }}>
           <Form.Item
-            label="活动名称"
+            label="姓名"
             name="username"
             rules={[
               {
@@ -89,8 +52,8 @@ export default function ApplyFor() {
           </Form.Item>
 
           <Form.Item
-            label="活动地点"
-            name="locations"
+            label="年龄"
+            name="userage"
             rules={[
               {
                 required: true,
@@ -98,18 +61,7 @@ export default function ApplyFor() {
               },
             ]}
           >
-            <div>
-              <Input disabled={true} value={address}/>
-              <Popconfirm
-                title="我们将获取您的位置?"
-                onConfirm={confirm}
-                onCancel={() => {message.error('Click on No');}}
-                okText="同意"
-                cancelText="取消"
-              >
-                <Button>获取位置</Button>
-              </Popconfirm>
-            </div>
+            <Input />
           </Form.Item>
 
           <Form.Item
@@ -132,19 +84,6 @@ export default function ApplyFor() {
                 width: '100%',
               }}
             />
-          </Form.Item>
-
-          <Form.Item
-            name="time"
-            label="活动时间"
-            rules={[
-              {
-                required: true,
-                message: '请选择时间!',
-              }
-            ]}
-          >
-            <RangePicker />
           </Form.Item>
 
           <Form.Item

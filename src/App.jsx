@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import { LoadingOutlined } from '@ant-design/icons';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import router from './router/GlobalRouter';
 import { Space, Spin } from 'antd';

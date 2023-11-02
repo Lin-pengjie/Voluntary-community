@@ -1,6 +1,6 @@
 import { Card, Drawer, Descriptions, Tag, Col, Statistic } from 'antd';
 const { Countdown } = Statistic;
-import { ZoomInOutlined, SoundOutlined } from '@ant-design/icons';
+import { ZoomInOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import Image1 from '../../assets/img/yue.png';
 // 引入属性校验包
@@ -80,13 +80,7 @@ export default function App(props) {
 
     return (
         <>
-            <Card
-                title={title}
-                extra={
-                    <SoundOutlined
-                        style={{ fontSize: "30px", color: '#ff4d4f' }}
-                    />
-                }>
+            <Card title={title}>
                 {list.map((data, index) => {
                     return (
                         <Card

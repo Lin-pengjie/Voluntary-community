@@ -1,0 +1,41 @@
+.box {
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    flex-direction: column;
+    /* 竖直方向排列 */
+    flex: 1;
+    min-width: 84px;
+    background: #2b2b2b;
+    color: rgb(255, 255, 255);
+}
+
+.navTop {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* 垂直居中 */
+    flex-direction: column;
+    /* 竖直方向排列 */
+    align-items: center;
+    /* 水平居中 */
+    height: 70vh;
+}
+
+.Avatar {
+    background: rgb(247, 241, 231);
+    margin-top: 50px;
+}
+
+.navButton {
+    border: 0;
+    margin: 50px;
+}
+
+.navBottom{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* 水平居中 */
+    height: 30vh;
+}

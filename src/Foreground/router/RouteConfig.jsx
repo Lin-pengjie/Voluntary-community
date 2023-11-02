@@ -5,6 +5,7 @@ const Layout = lazy(() => import('../views/Home'))
 const Home = lazy(() => import('../views/subs/Main'))
 const Not = lazy(() => import('../views/Not'))
 const ApplyFor = lazy(() => import('../views/subs/ApplyFor'))
+const SignUp = lazy(() => import('../views/subs/SignUp'))
 const Message = lazy(() => import('../views/Message'))
 
 const Router = [
@@ -22,6 +23,11 @@ const Router = [
                 path:'applyfor',
                 element:<ApplyFor />,
                 key:'applyfor'
+            },
+            {
+                path:'signup',
+                element:<SignUp />,
+                key:'signup'
             },
             // 添加重定向路径配置
             {
@@ -44,7 +50,7 @@ const Router = [
     {
         path: '*',
         element: <Navigate to="/404" />,
-        key: '404'
+        key: 'redirect-404'
     },
 ]
 

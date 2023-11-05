@@ -13,18 +13,9 @@ const tag = [
         value: "距离报名结束"
     },
     {
-        color: "gold",
-        text: "准备中",
-        value: "距离活动开始"
-    },
-    {
         color: "green",
         text: "进行中",
         value: "距离活动结束"
-    },
-    {
-        color: "#bfbfbf",
-        text: "已结束"
     },
 ]
 
@@ -33,11 +24,13 @@ App.propTypes = {
     title: PropTypes.string,
     list: PropTypes.arrayOf(
         PropTypes.shape({
-            title: PropTypes.string,
-            text: PropTypes.string,
-            district: PropTypes.string,
-            state: PropTypes.number,
-            date: PropTypes.number
+            id: PropTypes.number,
+            activityName: PropTypes.string,
+            activityArea: PropTypes.string,
+            activityStatus: PropTypes.number,
+            activityContent: PropTypes.string,
+            startTime: PropTypes.number,
+            endTime: PropTypes.number
         })
     )
 }
@@ -46,7 +39,8 @@ export default function App(props) {
     const { title, list } = props;
     const [open, setOpen] = useState(false);
     const [cur, setcur] = useState(0)
-    const deadline = Date.now() + list[cur].date; // Dayjs is also OK
+    const startTime = list[cur].startTime;
+    const endTime = list[cur].endTime;
     const showDrawer = (index) => {
         setOpen(true);
         setcur(index)
@@ -59,22 +53,22 @@ export default function App(props) {
         {
             key: '1',
             label: '活动',
-            children: list[cur].title,
+            children: list[cur].activityName,
         },
         {
             key: '2',
             label: '活动地区',
-            children: list[cur].district,
+            children: list[cur].activityArea,
         },
         {
             key: '3',
             label: '活动状态',
-            children: <Tag color={tag[list[cur].state].color} style={{ margin: "5px" }}>{tag[list[cur].state].text}</Tag>,
+            children: <Tag color={tag[list[cur].activityStatus].color} style={{ margin: "5px" }}>{tag[list[cur].activityStatus].text}</Tag>,
         },
         {
             key: '4',
             label: '活动内容',
-            children: list[cur].text,
+            children: list[cur].activityContent,
         },
     ]
 
@@ -84,9 +78,9 @@ export default function App(props) {
                 {list.map((data, index) => {
                     return (
                         <Card
-                            key={data.title}
+                            key={data.id}
                             type="inner"
-                            title={data.title}
+                            title={data.activityName}
                             style={{ marginTop: "16px" }}
                             extra={
                                 <ZoomInOutlined
@@ -95,7 +89,7 @@ export default function App(props) {
                                 />
                             }
                         >
-                            {data.text}
+                            {data.activityContent}
                         </Card>
                     );
                 })}
@@ -103,7 +97,7 @@ export default function App(props) {
 
             <Drawer placement="right" onClose={onClose} open={open} width={'70%'}>
                 <div>
-                    <img src={Image1} style={{width:"30%",margin:"auto",display:"block",height:"30vh"}}></img>
+                    <img src={Image1} style={{ width: "30%", margin: "auto", display: "block", height: "30vh" }}></img>
                 </div>
                 <Descriptions
                     items={EventDetails}
@@ -111,17 +105,18 @@ export default function App(props) {
                     contentStyle={{ fontSize: "20px" }}
                     labelStyle={{ fontSize: "20px" }}
                 />
-
-                {
-                    list[cur].state !== 3 && <Col
-                        span={24}
-                        style={{
-                            marginTop: 32,
-                        }}
-                    >
-                        <Countdown title={tag[list[cur].state].value} value={deadline} format="D 天 H 时 m 分 s 秒" />
-                    </Col>
-                }
+                <Col
+                    span={24}
+                    style={{
+                        marginTop: 32,
+                    }}
+                >
+                    <Countdown
+                        title={tag[list[cur].activityStatus].value}
+                        value={list[cur].activityStatus === 0 ? startTime : endTime}
+                        format="D 天 H 时 m 分 s 秒"
+                    />
+                </Col>
             </Drawer>
         </>
     );

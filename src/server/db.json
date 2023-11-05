@@ -4,201 +4,91 @@
             "id": 1,
             "activityName": "老年健康知识讲座",
             "activityArea": "北京市",
-            "activityStatus": "报名中",
+            "activityStatus": 0,
             "activityContent": "本次讲座涵盖老年心脏健康、饮食营养等方面的知识。",
-            "registrationDeadline": 1672527599,
-            "startTime": 1673376000,
-            "endTime": 1673841600
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         },
         {
             "id": 2,
             "activityName": "老年手工制作工作坊",
             "activityArea": "上海市",
-            "activityStatus": "报名中",
+            "activityStatus": 0,
             "activityContent": "欢迎社区居民参加我们的手工制作工作坊，一起学习制作精美手工艺品。",
-            "registrationDeadline": 1672855799,
-            "startTime": 1673432400,
-            "endTime": 1673918400
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         },
         {
             "id": 3,
             "activityName": "老年健步走活动",
             "activityArea": "广州市",
-            "activityStatus": "进行中",
+            "activityStatus": 1,
             "activityContent": "每天早上5点开始，欢迎社区的老年朋友们一起去公园健步走。",
-            "registrationDeadline": 1672652399,
-            "startTime": 1673136000,
-            "endTime": 1673568000
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         },
         {
             "id": 4,
             "activityName": "老年阅读分享会",
             "activityArea": "深圳市",
-            "activityStatus": "报名中",
+            "activityStatus": 0,
             "activityContent": "欢迎喜欢阅读的老年朋友们一起参加我们的阅读分享活动，分享你喜欢的书籍。",
-            "registrationDeadline": 1672970599,
-            "startTime": 1673547200,
-            "endTime": 1673923200
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         },
         {
             "id": 5,
             "activityName": "老年舞蹈培训班",
             "activityArea": "成都市",
-            "activityStatus": "报名中",
+            "activityStatus": 0,
             "activityContent": "想学跳舞吗？我们提供免费的老年舞蹈培训，欢迎报名。",
-            "registrationDeadline": 1673116799,
-            "startTime": 1673683200,
-            "endTime": 1674052800
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         },
         {
             "id": 6,
             "activityName": "老年亲子游戏活动",
             "activityArea": "重庆市",
-            "activityStatus": "准备中",
+            "activityStatus": 1,
             "activityContent": "此次活动旨在增进老年人与子女之间的沟通和互动，欢迎踊跃报名。",
-            "registrationDeadline": 1673393999,
-            "startTime": 1673966400,
-            "endTime": 1674484800
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         },
         {
             "id": 7,
             "activityName": "老年篮球友谊赛",
             "activityArea": "南京市",
-            "activityStatus": "进行中",
+            "activityStatus": 1,
             "activityContent": "老年人也可以打篮球！加入我们参加篮球友谊赛，锻炼身体、增进友谊。",
-            "registrationDeadline": 1673175599,
-            "startTime": 1673740800,
-            "endTime": 1674355200
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         },
         {
             "id": 8,
             "activityName": "老年书法展览",
             "activityArea": "杭州市",
-            "activityStatus": "报名中",
+            "activityStatus": 0,
             "activityContent": "欢迎老年书法爱好者参加我们的展览，展示你的书法作品。",
-            "registrationDeadline": 1672864799,
-            "startTime": 1673443200,
-            "endTime": 1673808000
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         },
         {
             "id": 9,
             "activityName": "老年音乐欣赏会",
             "activityArea": "武汉市",
-            "activityStatus": "进行中",
+            "activityStatus": 1,
             "activityContent": "每周三下午2点，我们将为您准备一场高品质的老年音乐欣赏会。",
-            "registrationDeadline": 1672807999,
-            "startTime": 1673376000,
-            "endTime": 1673808000
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         },
         {
             "id": 10,
             "activityName": "老年健身操比赛",
             "activityArea": "天津市",
-            "activityStatus": "报名中",
+            "activityStatus": 0,
             "activityContent": "展示你的健身操才艺，参加我们的比赛，一起锻炼身体。",
-            "registrationDeadline": 1673101199,
-            "startTime": 1673673600,
-            "endTime": 1674163200
-        },
-        {
-            "id": 11,
-            "activityName": "老年社交舞交流会",
-            "activityArea": "西安市",
-            "activityStatus": "准备中",
-            "activityContent": "我们将举办一场老年社交舞交流会，和其他社区的老年舞蹈爱好者一起共舞。",
-            "registrationDeadline": 1672904399,
-            "startTime": 1673476800,
-            "endTime": 1674052800
-        },
-        {
-            "id": 12,
-            "activityName": "老年棋牌大赛",
-            "activityArea": "济南市",
-            "activityStatus": "报名中",
-            "activityContent": "爱好棋牌的老年人们，快来参加我们的棋牌大赛，展示你的才华。",
-            "registrationDeadline": 1673185199,
-            "startTime": 1673750400,
-            "endTime": 1674163200
-        },
-        {
-            "id": 13,
-            "activityName": "老年户外野餐活动",
-            "activityArea": "沈阳市",
-            "activityStatus": "进行中",
-            "activityContent": "天气好的时候，我们将组织一场户外野餐活动，欢迎大家带上家人一起参加。",
-            "registrationDeadline": 1672807999,
-            "startTime": 1673443200,
-            "endTime": 1674052800
-        },
-        {
-            "id": 14,
-            "activityName": "老年摄影比赛",
-            "activityArea": "长沙市",
-            "activityStatus": "报名中",
-            "activityContent": "喜欢摄影的老年朋友们，快来参加我们的摄影比赛，展示你的摄影技巧。",
-            "registrationDeadline": 1672798399,
-            "startTime": 1673366400,
-            "endTime": 1673750400
-        },
-        {
-            "id": 15,
-            "activityName": "老年健康乐园",
-            "activityArea": "郑州市",
-            "activityStatus": "进行中",
-            "activityContent": "我们为老年朋友们打造了一个健康乐园，提供丰富多样的健康活动和服务。",
-            "registrationDeadline": 1672965999,
-            "startTime": 1673539200,
-            "endTime": 1674052800
-        },
-        {
-            "id": 16,
-            "activityName": "老年英语角",
-            "activityArea": "哈尔滨市",
-            "activityStatus": "报名中",
-            "activityContent": "想学习英语吗？参加我们的老年英语角，和其他老年朋友一起学习英语。",
-            "registrationDeadline": 1673157999,
-            "startTime": 1673731200,
-            "endTime": 1674163200
-        },
-        {
-            "id": 17,
-            "activityName": "老年绘画工作坊",
-            "activityArea": "西宁市",
-            "activityStatus": "准备中",
-            "activityContent": "我们将开设老年绘画工作坊，欢迎热爱绘画的老年朋友一起学习和交流。",
-            "registrationDeadline": 1672918799,
-            "startTime": 1673500800,
-            "endTime": 1674096000
-        },
-        {
-            "id": 18,
-            "activityName": "老年农场体验活动",
-            "activityArea": "兰州市",
-            "activityStatus": "报名中",
-            "activityContent": "想体验农场生活吗？加入我们的老年农场体验活动，感受大自然的美妙。",
-            "registrationDeadline": 1673101199,
-            "startTime": 1673683200,
-            "endTime": 1674355200
-        },
-        {
-            "id": 19,
-            "activityName": "老年电影观影会",
-            "activityArea": "银川市",
-            "activityStatus": "进行中",
-            "activityContent": "每周五晚上7点，我们将放映一部经典老电影。欢迎喜爱电影的老年朋友们一起观影。",
-            "registrationDeadline": 1672880399,
-            "startTime": 1673443200,
-            "endTime": 1673918400
-        },
-        {
-            "id": 20,
-            "activityName": "老年交谊舞培训班",
-            "activityArea": "呼和浩特市",
-            "activityStatus": "报名中",
-            "activityContent": "想学跳舞吗？参加我们的老年交谊舞培训班，学习优美的舞步。",
-            "registrationDeadline": 1673194799,
-            "startTime": 1673760000,
-            "endTime": 1674163200
+            "startTime": 1799207236390,
+            "endTime": 1799207236390
         }
     ],
     "ActivityDisplay": [

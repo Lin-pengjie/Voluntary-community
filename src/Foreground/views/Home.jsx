@@ -1,12 +1,16 @@
-import { Layout, Menu, Carousel, ConfigProvider, Space, Popover, QRCode } from 'antd';
+import { Layout, Menu, Carousel, ConfigProvider, Space, Popover, QRCode, Spin } from 'antd';
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
-import Style from '../assets/css/home.module.css'
-import img from "../assets/img/lb.jpg"
+import Style from '@f/assets/css/home.module.css'
+import img from "@f/assets/img/lb.jpg"
 import { FileDoneOutlined, MessageOutlined, HomeOutlined, PartitionOutlined, WeiboCircleOutlined, WechatOutlined } from '@ant-design/icons';
-import Notice from '../components/NoticeBoard/App'
+import Notice from '@f/components/NoticeBoard/App'
+import { useEffect, useState } from 'react';
+import { announcement } from '@f/apis/announcement'
 
 const { Header, Footer } = Layout;
+//页脚联系二维码
 const src = 'https://github.com/Lin-pengjie';
+//导航栏内容
 const items = [
   {
     label: '首页',
@@ -34,34 +38,19 @@ const items = [
     icon: <PartitionOutlined />
   }
 ]
-//模拟时间和数据，到时发请求获取
-const list = [
-  {
-    state: 0,
-    date: 1000 * 60 * 60 * 24 * 2,
-    district: "天津",
-    title: 'xxx活动',
-    text: '我们很高兴宣布，我们的志愿服务系统现在提供了一项全新的服务，将有助于老年人更轻松地享受生活。这项服务包括家居保洁、购物代办、社交陪伴等多项便利服务。欢迎了解更多信息并预约使用服务，让老年人的生活更加便捷。'
-  },
-  {
-    state: 1,
-    date: 1000 * 60 * 2,
-    district: "天津",
-    title: 'aaa活动',
-    text: '我们很高兴宣布，我们的志愿服务系统现在提供了一项全新的服务，将有助于老年人更轻松地享受生活。这项服务包括家居保洁、购物代办、社交陪伴等多项便利服务。欢迎了解更多信息并预约使用服务，让老年人的生活更加便捷。'
-  },
-  {
-    state: 3,
-    date: 1000 * 60 * 60 * 24 * 2,
-    district: "天津",
-    title: 'bbb活动',
-    text: '我们很高兴宣布，我们的志愿服务系统现在提供了一项全新的服务，将有助于老年人更轻松地享受生活。这项服务包括家居保洁、购物代办、社交陪伴等多项便利服务。欢迎了解更多信息并预约使用服务，让老年人的生活更加便捷。'
-  },
-]
 
 const Home = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  const [list, setlist] = useState()
+
+  useEffect(() => { fineAnnouncement() }, [])
+
+  //调用api请求公告栏数据
+  const fineAnnouncement = async () => {
+    const res = await announcement()
+    setlist(res.data)
+  }
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -103,7 +92,14 @@ const Home = () => {
         </div>
         <div style={{ display: "flex" }}>
           <div className={Style.side}>
-            <Notice title="活动公告" list={list} />
+            {
+              !list && <Spin tip="Loading" size="large">
+                <div className="content" />
+              </Spin>
+            }
+            {
+              list && <Notice title="活动公告" list={list} />
+            }
           </div>
           <div className={Style.content}>
             <Outlet></Outlet>

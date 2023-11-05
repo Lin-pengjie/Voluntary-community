@@ -1,4 +1,4 @@
-import img from "../assets/img/404.png"
+import img from "@f/assets/img/404.png"
 
 export default function Not() {
     return (

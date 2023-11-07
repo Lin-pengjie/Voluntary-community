@@ -2,27 +2,42 @@ import { Card, List } from 'antd'
 import Style from '@/assets/css/main.module.css'
 import Meta from 'antd/es/card/Meta'
 import { LikeOutlined } from '@ant-design/icons';
-import  { useEffect, useState } from 'react';
-import { ActivityDisplay,news } from '@/apis/main'
+import { useEffect, useState } from 'react';
+import { ActivityDisplay, news, findUser,userLike } from '@/apis/main'
 import IconText from '@/components/praise/App'
 
 export default function Index() {
   const [Display, setDisplay] = useState([])
   const [newsData, setnewsData] = useState([])
+  const token = JSON.parse(localStorage.getItem("token"))
+  const [user, setuser] = useState([])
 
   useEffect(() => { DisplayData() }, [])
   useEffect(() => { newsD() }, [])
+  useEffect(() => { fineUser() }, [])
+
+  //调用api请求用户数据
+  const fineUser = async () => {
+    const res = await findUser(token.username, token.password)
+    setuser(res.data)
+  }
 
   //调用api请求活动展示数据，存入Display
   const DisplayData = async () => {
     const res = await ActivityDisplay()
     setDisplay(res.data)
   }
-    //调用api请求新闻数据，存入newsData
-    const newsD = async() => {
-      const res = await news()
-      setnewsData(res.data)
-    }
+  //调用api请求新闻数据，存入newsData
+  const newsD = async () => {
+    const res = await news()
+    setnewsData(res.data)
+  }
+
+  const handlike = (id) => {
+    userLike(user[0].id,{
+      likedNewsIds: [...user[0].likedNewsIds,id]
+    })
+  }
 
   return (
     <div className={Style.box}>
@@ -59,7 +74,14 @@ export default function Index() {
           renderItem={(item) => (
             <List.Item
               key={item.id}
-              actions={[<IconText icon={LikeOutlined} text={item.praise} id={item.id} key={item.id}/>]}
+              actions={[<IconText
+                icon={LikeOutlined}
+                text={item.praise}
+                id={item.id}
+                key={item.id}
+                likedNewsIds={user[0]?.likedNewsIds}
+                handlike={(id) => {handlike(id)}}
+              />]}
               extra={
                 <img
                   width={272}

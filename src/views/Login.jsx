@@ -1,29 +1,50 @@
 import LoginImg from "@/assets/img/login.png"
 import Style from "@/assets/css/login.module.css"
-import { Button, Space, Form, Input } from 'antd';
+import { Button, Space, Form, Input, message } from 'antd';
 import { useNavigate } from "react-router";
-import { useState } from "react";
-const onFinish = (values) => {
-    console.log('Success:', values);
-};
-const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-};
+import { useEffect, useState } from "react";
+import { verifyUser } from '@/apis/loginApi'
 
 export default function Login() {
     const navigate = useNavigate()
-    //获取用户输入用户名
-    const [usename,setusename] = useState("")
-    //获取用户输入密码
-    const [password,setpassword] = useState('')
+    const [data, setdata] = useState([])
+    const [messageApi, contextHolder] = message.useMessage();
 
-    //用户点击登录回调
-    const handLogin = () => {
-        
+    const findUser = async (u, p) => {
+        const res = await verifyUser(u, p)
+        setdata(res.data)
     }
+
+    //提交表单的时候验证
+    const onFinish = (values) => {
+        findUser(values.username, values.password)
+        
+    };
+    const verify = () => {
+        if (data.length !== 0) {
+            const token = {
+                username: data[0].username,
+                password: data[0].password
+            };
+            localStorage.setItem("token", JSON.stringify(token));
+            navigate('/home')
+        } else {
+            messageApi.open({
+                type: 'error',
+                content: 'This is an error message',
+            });
+        }
+    }
+
+    useEffect(() => {
+        if (data.length > 0) {
+            verify();
+          }
+    },[data])
 
     return (
         <div className={Style.box}>
+            {contextHolder}
             <div className={Style.content}>
                 <div className={Style.leftContent}>
                     <img src={LoginImg}></img>
@@ -44,7 +65,6 @@ export default function Login() {
                             remember: true,
                         }}
                         onFinish={onFinish}
-                        onFinishFailed={onFinishFailed}
                         autoComplete="off"
                     >
                         <Form.Item
@@ -57,7 +77,7 @@ export default function Login() {
                                 },
                             ]}
                         >
-                            <Input onChange={(value) => {setusename(value.target.value)}}/>
+                            <Input />
                         </Form.Item>
 
                         <Form.Item
@@ -70,7 +90,7 @@ export default function Login() {
                                 },
                             ]}
                         >
-                            <Input.Password onChange={(value) => {setpassword(value.target.value)}}/>
+                            <Input.Password />
                         </Form.Item>
 
                         <Form.Item
@@ -80,8 +100,8 @@ export default function Login() {
                             }}
                         >
                             <Space>
-                                <Button type="primary" htmlType="submit" onClick={() => {handLogin()}}>登录</Button>
-                                <Button onClick={() => {navigate("/sign")}}>去注册</Button>
+                                <Button type="primary" htmlType="submit">登录</Button>
+                                <Button onClick={() => { navigate("/sign") }}>去注册</Button>
                             </Space>
                         </Form.Item>
                     </Form>

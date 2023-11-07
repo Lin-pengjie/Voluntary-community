@@ -5,9 +5,8 @@ import img from "@/assets/img/lb.jpg"
 import { FileDoneOutlined, HomeOutlined, WeiboCircleOutlined, WechatOutlined, CommentOutlined } from '@ant-design/icons';
 import Notice from '@/components/NoticeBoard/App'
 import { useEffect, useState } from 'react';
-import { announcement } from '@/apis/announcement'
+import { announcement, findUser } from '@/apis/announcement'
 import MyModal from "@/components/MyModal/App"
-import axios from 'axios';
 
 const { Header, Footer } = Layout;
 //页脚联系二维码
@@ -35,8 +34,12 @@ const Home = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [list, setlist] = useState()
+  const [user,setuser] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const token = JSON.parse(localStorage.getItem("token"))
 
   useEffect(() => { fineAnnouncement() }, [])
+  useEffect(() => { fineUser() }, [])
 
   //调用api请求公告栏数据
   const fineAnnouncement = async () => {
@@ -44,12 +47,10 @@ const Home = () => {
     setlist(res.data)
   }
   //调用api请求用户数据
-  axios.get("http://localhost:8000/OldUser", {
-    params: {
-      username: "user55",
-      password: "password1"
-    }
-  })
+  const fineUser = async() => {
+    const res = await findUser(token.username,token.password)
+    setuser(res.data)
+  }
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -149,9 +150,15 @@ const Home = () => {
           },
         }}
       >
-        <Button shape="circle" icon={<CommentOutlined style={{ fontSize: "28px" }} />} size='large' className={Style.message} />
+        <Button
+          shape="circle"
+          icon={<CommentOutlined style={{ fontSize: "28px" }} />}
+          size='large'
+          className={Style.message}
+          onClick={() => {setIsModalOpen(true)}}
+        />
       </ConfigProvider>
-      <MyModal></MyModal>
+      <MyModal open={isModalOpen} CancelOpen={(data) => {setIsModalOpen(data)}} user={user}></MyModal>
     </Layout>
   )
 }

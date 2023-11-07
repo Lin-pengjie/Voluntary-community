@@ -49,3 +49,9 @@
 .content{
     flex: 5;
 }
+
+.message{
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+}

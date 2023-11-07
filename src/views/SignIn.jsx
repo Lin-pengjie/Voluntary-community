@@ -1,5 +1,5 @@
-import LoginImg from "../assets/img/login.png"
-import Style from "../assets/css/login.module.css"
+import LoginImg from "@/assets/img/login.png"
+import Style from "@/assets/css/login.module.css"
 import { Button, Space, Form, Input } from 'antd';
 const onFinish = (values) => {
     console.log('Success:', values);

@@ -1,17 +1,19 @@
 import { lazy } from "react"
 import { Navigate } from "react-router-dom"
+import RouterAuth from "@/router/RouterAuth"
 
 const Layout = lazy(() => import('../views/Home'))
 const Home = lazy(() => import('../views/subs/Main'))
-const Not = lazy(() => import('../views/Not'))
 const ApplyFor = lazy(() => import('../views/subs/ApplyFor'))
 const SignUp = lazy(() => import('../views/subs/SignUp'))
-const Message = lazy(() => import('../views/Message'))
+const Login = lazy(() => import('@/views/Login'))
+const SignIn = lazy(() => import('@/views/SignIn'))
+const Not = lazy(() => import('@/views/Not'))
 
 const Router = [
     {
         path: '/',
-        element: <Layout />,
+        element: <RouterAuth><Layout /></RouterAuth>,
         key: 'layout',
         children: [
             {
@@ -20,14 +22,14 @@ const Router = [
                 key: 'home'
             },
             {
-                path:'applyfor',
-                element:<ApplyFor />,
-                key:'applyfor'
+                path: 'applyfor',
+                element: <ApplyFor />,
+                key: 'applyfor'
             },
             {
-                path:'signup',
-                element:<SignUp />,
-                key:'signup'
+                path: 'signup',
+                element: <SignUp />,
+                key: 'signup'
             },
             // 添加重定向路径配置
             {
@@ -38,9 +40,14 @@ const Router = [
         ]
     },
     {
-        path:"/message",
-        element:<Message />,
-        key:"message"
+        path: "/login",
+        element: <Login />,
+        key: "login"
+    },
+    {
+        path: '/sign',
+        element: <SignIn />,
+        key: 'sign'
     },
     {
         path: '/404',

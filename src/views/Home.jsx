@@ -1,11 +1,13 @@
-import { Layout, Menu, Carousel, ConfigProvider, Space, Popover, QRCode, Spin } from 'antd';
+import { Layout, Menu, Carousel, ConfigProvider, Space, Popover, QRCode, Spin, Button } from 'antd';
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
-import Style from '@f/assets/css/home.module.css'
-import img from "@f/assets/img/lb.jpg"
-import { FileDoneOutlined, MessageOutlined, HomeOutlined, PartitionOutlined, WeiboCircleOutlined, WechatOutlined } from '@ant-design/icons';
-import Notice from '@f/components/NoticeBoard/App'
+import Style from '@/assets/css/home.module.css'
+import img from "@/assets/img/lb.jpg"
+import { FileDoneOutlined, HomeOutlined, WeiboCircleOutlined, WechatOutlined, CommentOutlined } from '@ant-design/icons';
+import Notice from '@/components/NoticeBoard/App'
 import { useEffect, useState } from 'react';
-import { announcement } from '@f/apis/announcement'
+import { announcement } from '@/apis/announcement'
+import MyModal from "@/components/MyModal/App"
+import axios from 'axios';
 
 const { Header, Footer } = Layout;
 //页脚联系二维码
@@ -27,16 +29,6 @@ const items = [
     key: '/signup',
     icon: <FileDoneOutlined />
   },
-  {
-    label: '消息',
-    key: '/message',
-    icon: <MessageOutlined />,
-  },
-  {
-    label: '进入后台',
-    key: '/after',
-    icon: <PartitionOutlined />
-  }
 ]
 
 const Home = () => {
@@ -51,6 +43,13 @@ const Home = () => {
     const res = await announcement()
     setlist(res.data)
   }
+  //调用api请求用户数据
+  axios.get("http://localhost:8000/OldUser", {
+    params: {
+      username: "user55",
+      password: "password1"
+    }
+  })
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -140,6 +139,19 @@ const Home = () => {
         </div>
         <div>&copy;&emsp;·&emsp;2023·幸福年华志愿行&emsp;·&emsp;Happy time volunteer line</div>
       </Footer>
+      {/* 消息弹窗 */}
+      <ConfigProvider
+        theme={{
+          components: {
+            Button: {
+              defaultShadow: "0 0 14px 6px rgba(0, 0, 0, 0.1)"
+            },
+          },
+        }}
+      >
+        <Button shape="circle" icon={<CommentOutlined style={{ fontSize: "28px" }} />} size='large' className={Style.message} />
+      </ConfigProvider>
+      <MyModal></MyModal>
     </Layout>
   )
 }

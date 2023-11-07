@@ -1,6 +1,12 @@
-.box{
+.box {
     padding: 30px;
     width: 100%;
     min-height: 100%;
     background: rgb(255, 255, 255);
+}
+
+.Card{
+    position: sticky;
+    top: 0;
+    transform: translate(0, 0%);
 }

@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import router from './router/GlobalRouter';
+import router from '@/router/RouteConfig';
 import { Space, Spin } from 'antd';
 
 function App() {

@@ -1,4 +1,4 @@
-import Style from '../../assets/css/ApplyFor.module.css'
+import Style from '@/assets/css/ApplyFor.module.css'
 import {
   Button,
   Card,
@@ -36,7 +36,7 @@ export default function SignUp() {
 
   return (
     <div className={Style.box}>
-      <Card title="活动报名">
+      <Card title="活动报名" className={Style.Card}>
         <Form initialValues={{ prefix: '86' }}>
           <Form.Item
             label="姓名"

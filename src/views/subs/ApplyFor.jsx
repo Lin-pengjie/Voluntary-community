@@ -1,5 +1,4 @@
-import initCollapseMotion from 'antd/es/_util/motion';
-import Style from '../../assets/css/ApplyFor.module.css'
+import Style from '@/assets/css/ApplyFor.module.css'
 import {
   Button,
   Card,
@@ -73,7 +72,7 @@ export default function ApplyFor() {
 
   return (
     <div className={Style.box}>
-      <Card title="活动申请">
+      <Card title="活动申请" className={Style.Card}>
         <Form initialValues={{ prefix: '86' }}>
           <Form.Item
             label="活动名称"

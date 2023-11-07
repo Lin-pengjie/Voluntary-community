@@ -8,8 +8,6 @@ export default defineConfig({
   resolve:{
     alias:{
       '@': new URL('./src', import.meta.url).pathname,
-      '@f':new URL('./src/Foreground', import.meta.url).pathname,
-      '@b':new URL('./src/Backstage', import.meta.url).pathname
     }
   }
 })

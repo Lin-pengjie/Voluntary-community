@@ -2,7 +2,7 @@ import { Card, Drawer, Descriptions, Tag, Col, Statistic } from 'antd';
 const { Countdown } = Statistic;
 import { ZoomInOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import Image1 from '../../assets/img/yue.png';
+import Image1 from '@/assets/img/yue.png';
 // 引入属性校验包
 import PropTypes from "prop-types";
 

@@ -1,7 +1,8 @@
-import LoginImg from "../assets/img/login.png"
-import Style from "../assets/css/login.module.css"
+import LoginImg from "@/assets/img/login.png"
+import Style from "@/assets/css/login.module.css"
 import { Button, Space, Form, Input } from 'antd';
 import { useNavigate } from "react-router";
+import { useState } from "react";
 const onFinish = (values) => {
     console.log('Success:', values);
 };
@@ -11,6 +12,15 @@ const onFinishFailed = (errorInfo) => {
 
 export default function Login() {
     const navigate = useNavigate()
+    //获取用户输入用户名
+    const [usename,setusename] = useState("")
+    //获取用户输入密码
+    const [password,setpassword] = useState('')
+
+    //用户点击登录回调
+    const handLogin = () => {
+        
+    }
 
     return (
         <div className={Style.box}>
@@ -47,7 +57,7 @@ export default function Login() {
                                 },
                             ]}
                         >
-                            <Input />
+                            <Input onChange={(value) => {setusename(value.target.value)}}/>
                         </Form.Item>
 
                         <Form.Item
@@ -60,7 +70,7 @@ export default function Login() {
                                 },
                             ]}
                         >
-                            <Input.Password />
+                            <Input.Password onChange={(value) => {setpassword(value.target.value)}}/>
                         </Form.Item>
 
                         <Form.Item
@@ -70,7 +80,7 @@ export default function Login() {
                             }}
                         >
                             <Space>
-                                <Button type="primary" htmlType="submit">登录</Button>
+                                <Button type="primary" htmlType="submit" onClick={() => {handLogin()}}>登录</Button>
                                 <Button onClick={() => {navigate("/sign")}}>去注册</Button>
                             </Space>
                         </Form.Item>

@@ -1,137 +1,312 @@
 {
-    "announcement": [
+  "announcement": [
+    {
+      "id": 1,
+      "activityName": "老年健康知识讲座",
+      "activityArea": "北京市",
+      "activityStatus": 0,
+      "activityContent": "本次讲座涵盖老年心脏健康、饮食营养等方面的知识。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    },
+    {
+      "id": 2,
+      "activityName": "老年手工制作工作坊",
+      "activityArea": "上海市",
+      "activityStatus": 0,
+      "activityContent": "欢迎社区居民参加我们的手工制作工作坊，一起学习制作精美手工艺品。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    },
+    {
+      "id": 3,
+      "activityName": "老年健步走活动",
+      "activityArea": "广州市",
+      "activityStatus": 1,
+      "activityContent": "每天早上5点开始，欢迎社区的老年朋友们一起去公园健步走。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    },
+    {
+      "id": 4,
+      "activityName": "老年阅读分享会",
+      "activityArea": "深圳市",
+      "activityStatus": 0,
+      "activityContent": "欢迎喜欢阅读的老年朋友们一起参加我们的阅读分享活动，分享你喜欢的书籍。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    },
+    {
+      "id": 5,
+      "activityName": "老年舞蹈培训班",
+      "activityArea": "成都市",
+      "activityStatus": 0,
+      "activityContent": "想学跳舞吗？我们提供免费的老年舞蹈培训，欢迎报名。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    },
+    {
+      "id": 6,
+      "activityName": "老年亲子游戏活动",
+      "activityArea": "重庆市",
+      "activityStatus": 1,
+      "activityContent": "此次活动旨在增进老年人与子女之间的沟通和互动，欢迎踊跃报名。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    },
+    {
+      "id": 7,
+      "activityName": "老年篮球友谊赛",
+      "activityArea": "南京市",
+      "activityStatus": 1,
+      "activityContent": "老年人也可以打篮球！加入我们参加篮球友谊赛，锻炼身体、增进友谊。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    },
+    {
+      "id": 8,
+      "activityName": "老年书法展览",
+      "activityArea": "杭州市",
+      "activityStatus": 0,
+      "activityContent": "欢迎老年书法爱好者参加我们的展览，展示你的书法作品。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    },
+    {
+      "id": 9,
+      "activityName": "老年音乐欣赏会",
+      "activityArea": "武汉市",
+      "activityStatus": 1,
+      "activityContent": "每周三下午2点，我们将为您准备一场高品质的老年音乐欣赏会。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    },
+    {
+      "id": 10,
+      "activityName": "老年健身操比赛",
+      "activityArea": "天津市",
+      "activityStatus": 0,
+      "activityContent": "展示你的健身操才艺，参加我们的比赛，一起锻炼身体。",
+      "startTime": 1799207236390,
+      "endTime": 1799207236390
+    }
+  ],
+  "ActivityDisplay": [
+    {
+      "id": 1,
+      "imageUrl": "https://tse4-mm.cn.bing.net/th/id/OIP-C.eXH6xseJNgQcQhOqPJGzEAHaFj?pid=ImgDet&rs=1",
+      "activityName": "老年健康知识讲座",
+      "description": "本次讲座涵盖老年心脏健康、饮食营养等方面的知识。"
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.aaa1c4c9378371275895aad1cfff4be8?rik=c5Ih%2bDo4fYXc3g&riu=http%3a%2f%2fwww.jzrb.com%2ftxy%2fupload%2f2018821144630.JPG&ehk=NR5wgYKYTDHtiej0Yzvpb5MqxbNmtFSpXboY%2b7CKugU%3d&risl=&pid=ImgRaw&r=0",
+      "activityName": "老年手工制作工作坊",
+      "description": "欢迎社区居民参加我们的手工制作工作坊，一起学习制作精美手工艺品。"
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.98fc3b413d29d68c6ee72168472b6b5a?rik=5jnb%2bAgXr67qiA&riu=http%3a%2f%2fn1.itc.cn%2fimg8%2fwb%2frecom%2f2016%2f07%2f21%2f146909658596437641.JPEG&ehk=5uen7pL0xPyavvzBlpu4orjQyHcJ%2foaaJheNmT5%2b86Y%3d&risl=&pid=ImgRaw&r=0",
+      "activityName": "老年健步走活动",
+      "description": "每天早上5点开始，欢迎社区的老年朋友们一起去公园健步走。"
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "imageUrl": "https://img.henan.gov.cn/17e7b952eabfad0466c38d1078a05b9e?q=100&w=1200",
+      "newsName": "社区举办老年健身操比赛",
+      "publisher": "社区居委会",
+      "content": "本次比赛由社区居委会主办，旨在鼓励老年人积极参加健身活动，展示健康活力。",
+      "praise": 167
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://img.henan.gov.cn/17e7b952eabfad0466c38d1078a05b9e?q=100&w=1200",
+      "newsName": "社区举办老年健身操比赛",
+      "publisher": "社区居委会",
+      "content": "本次比赛由社区居委会主办，旨在鼓励老年人积极参加健身活动，展示健康活力。",
+      "praise": 232
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.ce314c75062347e2ab07540fe1b02c58?rik=Vmh88bQpgBDPiQ&riu=http%3a%2f%2fwww.sipac.gov.cn%2fxtjd%2fgzdt%2f202104%2f7b921a583d68437290c9ecdbc86881a6%2fimages%2f4629262c0f1c426ea43b3deb5064c892.jpg&ehk=x6lSW7eXTUBPepTPJl1qFFFm%2fyfB9htQfEQl7rvnhBk%3d&risl=&pid=ImgRaw&r=0",
+      "newsName": "社区举办老年书法展览",
+      "publisher": "文化中心",
+      "content": "为了促进老年人艺术兴趣，社区文化中心组织了一场老年书法展览，展示老年人的书法才华。",
+      "praise": 89
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.06a4919d3af373aba029a076fa544f25?rik=FWQXEcAr2Z%2bHmw&riu=http%3a%2f%2ffc.china.com.cn%2fpic%2f2019-10%2f22%2fe31d24bd-42f2-4f24-8927-f3e35a2f1fab.jpg&ehk=7DssvwW0zFOMZHwvDFLNNvp%2btzBPlyJfw%2b1s3GtXTWs%3d&risl=&pid=ImgRaw&r=0",
+      "newsName": "社区开设老年英语角",
+      "publisher": "志愿者团队",
+      "content": "社区志愿者团队发起了一场老年英语角活动，鼓励老年朋友们一起学习和交流英语。",
+      "praise": 51
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.ce314c75062347e2ab07540fe1b02c58?rik=Vmh88bQpgBDPiQ&riu=http%3a%2f%2fwww.sipac.gov.cn%2fxtjd%2fgzdt%2f202104%2f7b921a583d68437290c9ecdbc86881a6%2fimages%2f4629262c0f1c426ea43b3deb5064c892.jpg&ehk=x6lSW7eXTUBPepTPJl1qFFFm%2fyfB9htQfEQl7rvnhBk%3d&risl=&pid=ImgRaw&r=0",
+      "newsName": "社区举办老年书法展览",
+      "publisher": "文化中心",
+      "content": "为了促进老年人艺术兴趣，社区文化中心组织了一场老年书法展览，展示老年人的书法才华。",
+      "praise": 156
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.06a4919d3af373aba029a076fa544f25?rik=FWQXEcAr2Z%2bHmw&riu=http%3a%2f%2ffc.china.com.cn%2fpic%2f2019-10%2f22%2fe31d24bd-42f2-4f24-8927-f3e35a2f1fab.jpg&ehk=7DssvwW0zFOMZHwvDFLNNvp%2btzBPlyJfw%2b1s3GtXTWs%3d&risl=&pid=ImgRaw&r=0",
+      "newsName": "社区开设老年英语角",
+      "publisher": "志愿者团队",
+      "content": "社区志愿者团队发起了一场老年英语角活动，鼓励老年朋友们一起学习和交流英语。",
+      "praise": 156
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://img.henan.gov.cn/17e7b952eabfad0466c38d1078a05b9e?q=100&w=1200",
+      "newsName": "社区举办老年健身操比赛",
+      "publisher": "社区居委会",
+      "content": "本次比赛由社区居委会主办，旨在鼓励老年人积极参加健身活动，展示健康活力。",
+      "praise": 156
+    },
+    {
+      "id": 8,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.ce314c75062347e2ab07540fe1b02c58?rik=Vmh88bQpgBDPiQ&riu=http%3a%2f%2fwww.sipac.gov.cn%2fxtjd%2fgzdt%2f202104%2f7b921a583d68437290c9ecdbc86881a6%2fimages%2f4629262c0f1c426ea43b3deb5064c892.jpg&ehk=x6lSW7eXTUBPepTPJl1qFFFm%2fyfB9htQfEQl7rvnhBk%3d&risl=&pid=ImgRaw&r=0",
+      "newsName": "社区举办老年书法展览",
+      "publisher": "文化中心",
+      "content": "为了促进老年人艺术兴趣，社区文化中心组织了一场老年书法展览，展示老年人的书法才华。",
+      "praise": 156
+    },
+    {
+      "id": 9,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.06a4919d3af373aba029a076fa544f25?rik=FWQXEcAr2Z%2bHmw&riu=http%3a%2f%2ffc.china.com.cn%2fpic%2f2019-10%2f22%2fe31d24bd-42f2-4f24-8927-f3e35a2f1fab.jpg&ehk=7DssvwW0zFOMZHwvDFLNNvp%2btzBPlyJfw%2b1s3GtXTWs%3d&risl=&pid=ImgRaw&r=0",
+      "newsName": "社区开设老年英语角",
+      "publisher": "志愿者团队",
+      "content": "社区志愿者团队发起了一场老年英语角活动，鼓励老年朋友们一起学习和交流英语。",
+      "praise": 156
+    },
+    {
+      "id": 10,
+      "imageUrl": "https://img.henan.gov.cn/17e7b952eabfad0466c38d1078a05b9e?q=100&w=1200",
+      "newsName": "社区举办老年健身操比赛",
+      "publisher": "社区居委会",
+      "content": "本次比赛由社区居委会主办，旨在鼓励老年人积极参加健身活动，展示健康活力。",
+      "praise": 156
+    },
+    {
+      "id": 11,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.ce314c75062347e2ab07540fe1b02c58?rik=Vmh88bQpgBDPiQ&riu=http%3a%2f%2fwww.sipac.gov.cn%2fxtjd%2fgzdt%2f202104%2f7b921a583d68437290c9ecdbc86881a6%2fimages%2f4629262c0f1c426ea43b3deb5064c892.jpg&ehk=x6lSW7eXTUBPepTPJl1qFFFm%2fyfB9htQfEQl7rvnhBk%3d&risl=&pid=ImgRaw&r=0",
+      "newsName": "社区举办老年书法展览",
+      "publisher": "文化中心",
+      "content": "为了促进老年人艺术兴趣，社区文化中心组织了一场老年书法展览，展示老年人的书法才华。",
+      "praise": 156
+    },
+    {
+      "id": 12,
+      "imageUrl": "https://ts1.cn.mm.bing.net/th/id/R-C.06a4919d3af373aba029a076fa544f25?rik=FWQXEcAr2Z%2bHmw&riu=http%3a%2f%2ffc.china.com.cn%2fpic%2f2019-10%2f22%2fe31d24bd-42f2-4f24-8927-f3e35a2f1fab.jpg&ehk=7DssvwW0zFOMZHwvDFLNNvp%2btzBPlyJfw%2b1s3GtXTWs%3d&risl=&pid=ImgRaw&r=0",
+      "newsName": "社区开设老年英语角",
+      "publisher": "志愿者团队",
+      "content": "社区志愿者团队发起了一场老年英语角活动，鼓励老年朋友们一起学习和交流英语。",
+      "praise": 156
+    }
+  ],
+  "OldUser": [
+    {
+      "id": 1,
+      "avatar": "https://p.qqan.com/up/2021-6/20216121034206481.jpg",
+      "username": "user1",
+      "password": "password1",
+      "phone": "18760514957",
+      "userType": 1,
+      "likedNewsIds": [
+        1,
+        2,
+        5
+      ],
+      "friendList": [
+        2,
+        3
+      ],
+      "messages": [
         {
-            "id": 1,
-            "activityName": "老年健康知识讲座",
-            "activityArea": "北京市",
-            "activityStatus": 0,
-            "activityContent": "本次讲座涵盖老年心脏健康、饮食营养等方面的知识。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
+          "friendId": 2,
+          "message": "Hello, how are you?"
         },
         {
-            "id": 2,
-            "activityName": "老年手工制作工作坊",
-            "activityArea": "上海市",
-            "activityStatus": 0,
-            "activityContent": "欢迎社区居民参加我们的手工制作工作坊，一起学习制作精美手工艺品。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
-        },
-        {
-            "id": 3,
-            "activityName": "老年健步走活动",
-            "activityArea": "广州市",
-            "activityStatus": 1,
-            "activityContent": "每天早上5点开始，欢迎社区的老年朋友们一起去公园健步走。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
-        },
-        {
-            "id": 4,
-            "activityName": "老年阅读分享会",
-            "activityArea": "深圳市",
-            "activityStatus": 0,
-            "activityContent": "欢迎喜欢阅读的老年朋友们一起参加我们的阅读分享活动，分享你喜欢的书籍。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
-        },
-        {
-            "id": 5,
-            "activityName": "老年舞蹈培训班",
-            "activityArea": "成都市",
-            "activityStatus": 0,
-            "activityContent": "想学跳舞吗？我们提供免费的老年舞蹈培训，欢迎报名。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
-        },
-        {
-            "id": 6,
-            "activityName": "老年亲子游戏活动",
-            "activityArea": "重庆市",
-            "activityStatus": 1,
-            "activityContent": "此次活动旨在增进老年人与子女之间的沟通和互动，欢迎踊跃报名。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
-        },
-        {
-            "id": 7,
-            "activityName": "老年篮球友谊赛",
-            "activityArea": "南京市",
-            "activityStatus": 1,
-            "activityContent": "老年人也可以打篮球！加入我们参加篮球友谊赛，锻炼身体、增进友谊。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
-        },
-        {
-            "id": 8,
-            "activityName": "老年书法展览",
-            "activityArea": "杭州市",
-            "activityStatus": 0,
-            "activityContent": "欢迎老年书法爱好者参加我们的展览，展示你的书法作品。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
-        },
-        {
-            "id": 9,
-            "activityName": "老年音乐欣赏会",
-            "activityArea": "武汉市",
-            "activityStatus": 1,
-            "activityContent": "每周三下午2点，我们将为您准备一场高品质的老年音乐欣赏会。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
-        },
-        {
-            "id": 10,
-            "activityName": "老年健身操比赛",
-            "activityArea": "天津市",
-            "activityStatus": 0,
-            "activityContent": "展示你的健身操才艺，参加我们的比赛，一起锻炼身体。",
-            "startTime": 1799207236390,
-            "endTime": 1799207236390
+          "friendId": 3,
+          "message": "Nice to meet you!"
         }
-    ],
-    "ActivityDisplay": [
+      ]
+    },
+    {
+      "id": 2,
+      "avatar": "https://tupian.qqw21.com/article/UploadPic/2020-5/202053023163935734.jpg",
+      "username": "user2",
+      "password": "password2",
+      "phone": "18760514957",
+      "userType": 1,
+      "likedNewsIds": [
+        3,
+        7,
+        10
+      ],
+      "friendList": [
+        1,
+        4
+      ],
+      "messages": [
         {
-            "id": 1,
-            "imageUrl": "https://example.com/activity1.jpg",
-            "activityName": "老年健康知识讲座",
-            "description": "本次讲座涵盖老年心脏健康、饮食营养等方面的知识。"
+          "friendId": 1,
+          "message": "Hi, how's it going?"
         },
         {
-            "id": 2,
-            "imageUrl": "https://example.com/activity2.jpg",
-            "activityName": "老年手工制作工作坊",
-            "description": "欢迎社区居民参加我们的手工制作工作坊，一起学习制作精美手工艺品。"
-        },
-        {
-            "id": 3,
-            "imageUrl": "https://example.com/activity3.jpg",
-            "activityName": "老年健步走活动",
-            "description": "每天早上5点开始，欢迎社区的老年朋友们一起去公园健步走。"
+          "friendId": 4,
+          "message": "What's up?"
         }
-    ],
-    "news": [
+      ]
+    },
+    {
+      "id": 3,
+      "avatar": "https://tupian.qqw21.com/article/UploadPic/2020-3/20203112226216037.jpg",
+      "username": "user3",
+      "password": "password3",
+      "phone": "18760514957",
+      "userType": 1,
+      "likedNewsIds": [
+        8,
+        9,
+        11
+      ],
+      "friendList": [
+        1
+      ],
+      "messages": [
         {
-            "id": 1,
-            "imageUrl": "https://example.com/news1.jpg",
-            "newsName": "社区举办老年健身操比赛",
-            "publisher": "社区居委会",
-            "content": "本次比赛由社区居委会主办，旨在鼓励老年人积极参加健身活动，展示健康活力。"
-        },
-        {
-            "id": 2,
-            "imageUrl": "https://example.com/news2.jpg",
-            "newsName": "社区举办老年书法展览",
-            "publisher": "文化中心",
-            "content": "为了促进老年人艺术兴趣，社区文化中心组织了一场老年书法展览，展示老年人的书法才华。"
-        },
-        {
-            "id": 3,
-            "imageUrl": "https://example.com/news3.jpg",
-            "newsName": "社区开设老年英语角",
-            "publisher": "志愿者团队",
-            "content": "社区志愿者团队发起了一场老年英语角活动，鼓励老年朋友们一起学习和交流英语。"
+          "friendId": 1,
+          "message": "Long time no see!"
         }
-    ]
+      ]
+    },
+    {
+      "id": 4,
+      "avatar": "https://tupian.qqw21.com/article/UploadPic/2020-8/202082222152493268.jpg",
+      "username": "user4",
+      "password": "password4",
+      "phone": "18760514957",
+      "userType": 1,
+      "likedNewsIds": [
+        4,
+        6,
+        12
+      ],
+      "friendList": [
+        2
+      ],
+      "messages": [
+        {
+          "friendId": 2,
+          "message": "Hey, how's life?"
+        }
+      ]
+    }
+  ]
 }

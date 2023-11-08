@@ -7,6 +7,7 @@ import Notice from '@/components/NoticeBoard/App'
 import { useEffect, useState } from 'react';
 import { announcement, findUser } from '@/apis/announcement'
 import MyModal from "@/components/MyModal/App"
+import { io } from "socket.io-client";
 
 const { Header, Footer } = Layout;
 //页脚联系二维码
@@ -34,22 +35,48 @@ const Home = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [list, setlist] = useState()
-  const [user,setuser] = useState([])
+  const [user, setuser] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"))
+  const [userDataLoaded, setUserDataLoaded] = useState(false);
+  //当前在线用户数据
+  const [onlineUser, setonlineUser] = useState([])
+
+  useEffect(() => {
+    fineUser()
+  }, [])
+
+  // 调用 api 请求用户数据
+  const fineUser = async () => {
+    const res = await findUser(token.username, token.password)
+    setuser(res.data)
+    setUserDataLoaded(true)
+  }
+  //使用socketio获取在线用户
+  useEffect(() => {
+    if (userDataLoaded) {
+      // 在成功获取用户数据之后，连接 WebSocket 服务器
+      const socket = io("http://localhost:8080", {
+        query: {
+          username: user[0]?.username,
+          avatar: user[0]?.avatar
+        }
+      });
+
+      socket.on('online', (data) => {
+        //过虑出不包含本用户的所有用户
+        const filterUser = data.userList.filter(item => item.username !== user[0].username)
+        setonlineUser(filterUser)
+      })
+    }
+  }, [userDataLoaded, user])
 
   useEffect(() => { fineAnnouncement() }, [])
-  useEffect(() => { fineUser() }, [])
 
   //调用api请求公告栏数据
   const fineAnnouncement = async () => {
     const res = await announcement()
     setlist(res.data)
-  }
-  //调用api请求用户数据
-  const fineUser = async() => {
-    const res = await findUser(token.username,token.password)
-    setuser(res.data)
   }
 
   return (
@@ -155,10 +182,10 @@ const Home = () => {
           icon={<CommentOutlined style={{ fontSize: "28px" }} />}
           size='large'
           className={Style.message}
-          onClick={() => {setIsModalOpen(true)}}
+          onClick={() => { setIsModalOpen(true) }}
         />
       </ConfigProvider>
-      <MyModal open={isModalOpen} CancelOpen={(data) => {setIsModalOpen(data)}} user={user}></MyModal>
+      <MyModal open={isModalOpen} CancelOpen={(data) => { setIsModalOpen(data) }} user={user} onlineUser={onlineUser}></MyModal>
     </Layout>
   )
 }

@@ -1,26 +1,16 @@
-import { Modal } from 'antd';
+import { Input, Modal } from 'antd';
 import Style from './App.module.css'
 import { UserOutlined, CommentOutlined, BarsOutlined } from '@ant-design/icons';
 import { Avatar, Button, Popover, ConfigProvider } from 'antd';
-import { useState } from 'react';
 import PropTypes from "prop-types";
-
-const navButton = [
-    {
-        key: 0,
-        icon: <CommentOutlined style={{ fontSize: "2em" }} />,
-    },
-    {
-        key: 1,
-        icon: <UserOutlined style={{ fontSize: "2em" }} />,
-    },
-]
+import { useState } from 'react';
 
 export default function App(props) {
-    const [selectedButton, setselectedButton] = useState(0)
+    //选择的用户id
+    const [userInfo, setuserInfo] = useState([])
     const user = props.user[0]
     return (
-        <Modal width={800} centered={true} open={props.open} onCancel={() => {props.CancelOpen(false) }} footer={null}>
+        <Modal width={800} style={{ minWidth: "700px" }} centered={true} open={props.open} onCancel={() => { props.CancelOpen(false) }} footer={null}>
             <ConfigProvider
                 theme={{
                     token: {
@@ -29,7 +19,7 @@ export default function App(props) {
                         borderRadius: 2,
 
                         // 派生变量，影响范围小
-                        colorBgContainer: '#141414',
+                        colorBgContainer: '#ffffff',
                     },
                 }}
             >
@@ -44,24 +34,9 @@ export default function App(props) {
                                 src={user?.avatar}
                             />
                             <div>
-                                {
-                                    navButton.map(item => {
-                                        return (
-                                            <Button
-                                                key={item.key}
-                                                size="large"
-                                                ghost
-                                                className={Style.navButton}
-                                                onClick={() => setselectedButton(item.key)}
-                                            >
-                                                <span className={Style.icon} style={{ color: selectedButton === item.key ? 'rgb(255, 255, 255)' : '' }}>
-                                                    {item.icon}
-                                                </span>
-                                                {item.label}
-                                            </Button>
-                                        )
-                                    })
-                                }
+                                <Button size="large" ghost className={Style.navButton} >
+                                    <CommentOutlined style={{ fontSize: "2em" }} />
+                                </Button>
                             </div>
                         </div>
 
@@ -76,16 +51,50 @@ export default function App(props) {
                             </Popover>
                         </div>
                     </div>
-                    <div style={{ flex: "3", background: '#ffccc7' }}></div>
-                    <div style={{ flex: "8", background: '#fff1f0' }}></div>
+                    <div style={{ flex: "3", background: '#ffccc7' }}>
+                        {
+                            props.onlineUser.map(item => {
+                                return (
+                                    <div
+                                        className={item.id !== userInfo.id ? Style.list : Style.clicklist}
+                                        key={item.id}
+                                        onClick={() => {
+                                            console.log(item)
+                                            setuserInfo(item)
+                                        }}
+                                    >
+                                        <div className={Style.list_l}>
+                                            <img className={Style.list_l_img} src={item.useravatar}></img>
+                                        </div>
+                                        <div className={Style.list_r}>{item.username}</div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div style={{ flex: "8", background: '#fff1f0' }}>
+                        {
+                            Object.keys(userInfo).length > 0 && <div className={Style.chat}>
+                                <div className={Style.chat_t}>
+                                    {userInfo.username}
+                                </div>
+                                <div className={Style.chat_c}></div>
+                                <div className={Style.chat_b}>
+                                    <Input placeholder="请输入" className={Style.chat_b_INPUT} />
+                                    <Button className={Style.chat_b_BUTTON}>发送</Button>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
             </ConfigProvider>
-        </Modal>
+        </Modal >
     )
 }
 
 App.propTypes = {
     open: PropTypes.bool.isRequired,
-    CancelOpen:PropTypes.func.isRequired,
-    user:PropTypes.array.isRequired,
+    CancelOpen: PropTypes.func.isRequired,
+    user: PropTypes.array.isRequired,
+    onlineUser: PropTypes.array.isRequired,
 };

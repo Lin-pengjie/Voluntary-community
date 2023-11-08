@@ -221,20 +221,6 @@
         1,
         5,
         7
-      ],
-      "friendList": [
-        2,
-        3
-      ],
-      "messages": [
-        {
-          "friendId": 2,
-          "message": "Hello, how are you?"
-        },
-        {
-          "friendId": 3,
-          "message": "Nice to meet you!"
-        }
       ]
     },
     {
@@ -248,20 +234,6 @@
         3,
         7,
         10
-      ],
-      "friendList": [
-        1,
-        4
-      ],
-      "messages": [
-        {
-          "friendId": 1,
-          "message": "Hi, how's it going?"
-        },
-        {
-          "friendId": 4,
-          "message": "What's up?"
-        }
       ]
     },
     {
@@ -275,15 +247,6 @@
         8,
         9,
         11
-      ],
-      "friendList": [
-        1
-      ],
-      "messages": [
-        {
-          "friendId": 1,
-          "message": "Long time no see!"
-        }
       ]
     },
     {
@@ -297,15 +260,6 @@
         4,
         6,
         12
-      ],
-      "friendList": [
-        2
-      ],
-      "messages": [
-        {
-          "friendId": 2,
-          "message": "Hey, how's life?"
-        }
       ]
     }
   ]

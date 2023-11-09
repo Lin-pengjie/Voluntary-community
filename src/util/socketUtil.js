@@ -18,24 +18,47 @@ io.on("connection", (socket) => {
   // console.log(socket.handshake.query);
   const username = socket.handshake.query.username
   const useravatar = socket.handshake.query.avatar
-  if(!username)return
+  if (!username) return
 
   //判断是否存在userList
   const userInfo = userList.find(user => user.username === username)
-  if(userInfo){
+  if (userInfo) {
     userInfo.id = socket.id
-  }else{
+  } else {
     userList.push({
       username,
       useravatar,
-      id:socket.id
+      id: socket.id
     })
   }
 
   console.log(userList)
 
-  io.emit('online',{
+  io.emit('online', {
     userList
+  })
+
+  socket.on('logout', () => {
+    const userInfo = userList.find(user => user.id === socket.id);
+    if (userInfo) {
+      userList.splice(userList.indexOf(userInfo), 1);
+      io.emit('online', {
+        userList
+      });
+    }
+  });
+
+  socket.on('send', (data) => {
+    const targetSocket = io.sockets.sockets.get(data.targetId);
+    console.log(targetSocket)
+    const toUser = userList.find(user => user.id === data.targetId)
+
+    targetSocket.emit('receive', {
+      fromUser: data.fromUser,
+      toUser: toUser.username,
+      msg: data.msg,
+      dateTime: new Date().getTime()
+    })
   })
 });
 

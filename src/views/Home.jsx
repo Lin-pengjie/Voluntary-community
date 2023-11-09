@@ -39,8 +39,15 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"))
   const [userDataLoaded, setUserDataLoaded] = useState(false);
+  const [socket, setSocket] = useState(null);
   //当前在线用户数据
   const [onlineUser, setonlineUser] = useState([])
+  //用户聊天数据
+  const [messageBox, setmessageBox] = useState({
+    [token.username]: [],
+  });
+  // //过虑出和自己相关的聊天数据
+  // const [filterMessage,setfilterMessage] = useState
 
   useEffect(() => {
     fineUser()
@@ -56,14 +63,16 @@ const Home = () => {
   useEffect(() => {
     if (userDataLoaded) {
       // 在成功获取用户数据之后，连接 WebSocket 服务器
-      const socket = io("http://localhost:8080", {
+      const newSocket = io("http://localhost:8080", {
         query: {
           username: user[0]?.username,
-          avatar: user[0]?.avatar
-        }
+          avatar: user[0]?.avatar,
+        },
       });
 
-      socket.on('online', (data) => {
+      setSocket(newSocket);
+
+      newSocket.on('online', (data) => {
         //过虑出不包含本用户的所有用户
         const filterUser = data.userList.filter(item => item.username !== user[0].username)
         setonlineUser(filterUser)
@@ -77,6 +86,44 @@ const Home = () => {
   const fineAnnouncement = async () => {
     const res = await announcement()
     setlist(res.data)
+  }
+
+  const AcquireMessage = (data, id) => {
+    setmessageBox((prev) => {
+      return {
+        ...prev,
+        [user[0]?.username]: prev[user[0]?.username]?.concat(data) || [data],
+      };
+    });
+
+    socket.emit('send', {
+      fromUser: token.username,
+      targetId: id,
+      msg: data.msg,
+    });
+  };
+
+  useEffect(() => {
+    // 监听回信
+    if (socket) {
+      const receiveHandler = (data) => {
+        setmessageBox((prev) => {
+          return {
+            ...prev,
+            [user[0]?.username]: prev[user[0]?.username]?.concat(data) || [data],
+          };
+        });
+      };
+      socket.on('receive', receiveHandler);
+
+      return () => {
+        socket.off('receive', receiveHandler); // 移除监听器
+      };
+    }
+  }, [socket, user]);
+
+  const aaa = () => {
+    socket.emit("logout");
   }
 
   return (
@@ -185,7 +232,15 @@ const Home = () => {
           onClick={() => { setIsModalOpen(true) }}
         />
       </ConfigProvider>
-      <MyModal open={isModalOpen} CancelOpen={(data) => { setIsModalOpen(data) }} user={user} onlineUser={onlineUser}></MyModal>
+      <MyModal
+        open={isModalOpen}
+        CancelOpen={(data) => { setIsModalOpen(data) }}
+        user={user}
+        onlineUser={onlineUser}
+        AcquireMessage={AcquireMessage}
+        messageBox={messageBox[token.username]}
+        aaa={aaa}
+      ></MyModal>
     </Layout>
   )
 }

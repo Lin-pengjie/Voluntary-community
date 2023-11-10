@@ -3,6 +3,7 @@ const { Countdown } = Statistic;
 import { ZoomInOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import Image1 from '@/assets/img/yue.png';
+import Style from './App.module.css'
 // 引入属性校验包
 import PropTypes from "prop-types";
 
@@ -74,7 +75,7 @@ export default function App(props) {
 
     return (
         <>
-            <Card title={title}>
+            <Card title={title} className={Style.card}>
                 {list.map((data, index) => {
                     return (
                         <Card

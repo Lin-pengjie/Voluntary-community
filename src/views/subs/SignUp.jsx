@@ -5,6 +5,7 @@ import {
   Form,
   Input,
   Select,
+  message
 } from 'antd';
 const { Option } = Select;
 const tailFormItemLayout = {
@@ -21,6 +22,11 @@ const tailFormItemLayout = {
 };
 
 export default function SignUp() {
+  const [messageApi, contextHolder] = message.useMessage();
+  const sign = () => {
+    messageApi.success('申请成功');
+  };
+
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
@@ -36,6 +42,7 @@ export default function SignUp() {
 
   return (
     <div className={Style.box}>
+      {contextHolder}
       <Card title="活动报名" className={Style.Card}>
         <Form initialValues={{ prefix: '86' }}>
           <Form.Item
@@ -104,7 +111,7 @@ export default function SignUp() {
           </Form.Item>
 
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" onClick={sign}>
               确认报名
             </Button>
           </Form.Item>

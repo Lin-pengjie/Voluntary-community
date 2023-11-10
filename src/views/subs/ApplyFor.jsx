@@ -28,7 +28,17 @@ const tailFormItemLayout = {
 };
 
 export default function ApplyFor() {
-  // const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.success('获取用户当前位置成功');
+  };
+  const error = () => {
+    messageApi.error('获取用户当前位置失败');
+  };
+
+  const sign = () => {
+    messageApi.success('申请成功');
+  };
   const [address, setaddress] = useState()
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
@@ -51,11 +61,11 @@ export default function ApplyFor() {
       (position) => {
         // setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude });
         reverseGeocode(position.coords.latitude, position.coords.longitude)
-        message.success('获取用户当前位置成功');
+        // message.success('获取用户当前位置成功');
       },
-      (error) => {
-        console.log('获取用户当前位置失败', error);
-        message.success('获取用户当前位置失败')
+      () => {
+        // message.success('获取用户当前位置失败')
+        error()
       }
     );
   };
@@ -65,6 +75,7 @@ export default function ApplyFor() {
     const data = await response.json();
     if (response.ok) {
       setaddress(data.display_name)
+      success()
     } else {
       console.log('逆地址解析失败');
     }
@@ -72,6 +83,7 @@ export default function ApplyFor() {
 
   return (
     <div className={Style.box}>
+      {contextHolder}
       <Card title="活动申请" className={Style.Card}>
         <Form initialValues={{ prefix: '86' }}>
           <Form.Item
@@ -146,26 +158,9 @@ export default function ApplyFor() {
             <RangePicker />
           </Form.Item>
 
-          <Form.Item
-            name="gender"
-            label="报名活动"
-            rules={[
-              {
-                required: true,
-                message: '请选择报名活动!',
-              },
-            ]}
-          >
-            <Select placeholder="下拉选择">
-              <Option value="male">Male</Option>
-              <Option value="female">Female</Option>
-              <Option value="other">Other</Option>
-            </Select>
-          </Form.Item>
-
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">
-              确认报名
+            <Button type="primary" htmlType="submit" onClick={sign}>
+              确认申请
             </Button>
           </Form.Item>
         </Form>

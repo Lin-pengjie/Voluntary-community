@@ -172,7 +172,7 @@ const Home = () => {
               </Spin>
             }
             {
-              list && <Notice title="活动公告" list={list} />
+              list && <Notice title="活动公告" list={list}/>
             }
           </div>
           <div className={Style.content}>

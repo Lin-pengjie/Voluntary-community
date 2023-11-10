@@ -34,7 +34,7 @@ export default function App(props) {
     }, [props.messageBox]);
 
     return (
-        <Modal width={800} style={{ minWidth: "700px" }} centered={true} open={props.open} onCancel={() => { props.CancelOpen(false) }} footer={null}>
+        <Modal width={800} style={{ minWidth: "700px" }}  open={props.open} onCancel={() => { props.CancelOpen(false) }} footer={null}>
             <ConfigProvider
                 theme={{
                     token: {
